@@ -34,6 +34,6 @@ httpServer.on('request', function(req, res) {
 	console.log('verb: ' + req.method + '\n');
 	
 	res.writeHead('200');
-	res.end('<script>window.location="' + req.url + '";</script>');
+	res.end('<script>window.location="' + req.url + '";</script>');		// TO-DO: do not perform endless redirects
 });
 
