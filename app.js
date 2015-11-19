@@ -31,24 +31,12 @@ logs._read = function() {
 	logs.push(test2);
 	logs.push(null);
 }
-// var loggingData = new Readable;
 
-var httpServer = http.createServer(function (req, res) {
+var httpServer = http.createServer();
+	
+httpServer.on('request', function(req, res) {
 	req.pipe(mutator).pipe(logs).pipe(res);
-	// res.end();
-		
-	// var headers = req.headers;
+});
 
-	// console.log(new Date());
+httpServer.listen(8080, 'localhost');
 
-	// for (key in headers) {
-	// 	console.log(key + ': ' + headers[key] + '\n');
-	// }
-
-	// console.log('url: ' + req.url + '\n');
-	// console.log('verb: ' + req.method + '\n');
-
-	// res.writeHead('200');
-	// res.end('<script>window.location="' + req.url + '";</script>');		// TO-DO: do not perform endless redirects
-})
-	.listen(8080, '127.0.0.1');
