@@ -1,4 +1,5 @@
 var http = require('http');
+
 var Duplex = require('stream').Duplex;
 var mutator = new Duplex();
 
